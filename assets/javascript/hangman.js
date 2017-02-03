@@ -47,7 +47,7 @@
             w: "herbivores",
             h: "someone who love greens"
         }, {
-            w: "rutgerscodingbootcamp",
+            w: "rutgers",
             h: "what is this for?"
         }, {
             w: "scrotum",
