@@ -138,7 +138,7 @@
             //rule for if player presses an invalid key on keyboard
             if ((treeLosing.includes(playerEntry)) || (!playerEntry.match(abcCheck))) {
                 console.log("invalid key");
-                var noValidKey = 'You cannot use that key, silly goose!'
+                var noValidKey = "You can't use that key, silly goose!"
                 document.querySelector('#playMessageDisplay').innerHTML = noValidKey;
             //subtracts from how many guesses you have left
             } else if (!allWords[wordChoice].w.includes(playerEntry)) {
@@ -147,7 +147,7 @@
                 //trigger for wrong guesses
                 for (j = 0; j < treeLosing.length; j++) {
                     j = treeLosing.indexOf(playerEntry);
-                    if (treeLosing.length > 0) {
+                    if (treeLosing.length < 11) {
                         var showFallingTree = treeFallDisplay[j];
                         var treeHtml = "<img src='" + showFallingTree + "' alt='leaves are falling off of the tree for every letter you guess wrong'>";
                         document.querySelector('#treeDisplay').innerHTML = treeHtml;
