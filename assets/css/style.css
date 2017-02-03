@@ -1,0 +1,152 @@
+body {
+	font-family: 'Raleway';
+	font-size: 20px;
+	background-color: #fff;
+}
+h1 {
+	font-family: 'Raleway';
+	font-size: 39px;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1.5em;
+	padding-top: 2em;
+	line-height: 1;
+	color: #3b4251;
+	text-align: center;
+	background-color: #fff;
+}
+h1:after {
+	content: url(../img/hangman-remixed.png);
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    padding-right: 100px;
+    margin-top: 5px;
+}
+h2 {
+	font-family: 'Raleway';
+	font-size: 27px;
+	line-height: calc(22px + 1.5em);
+	color: #3b4251;
+}
+h2, p {
+	text-align: center;
+}
+p {
+	font-family: 'Raleway';
+	line-height: 2;
+	text-align: center;
+}
+header {
+	position: fixed;
+	padding: 5px;
+	text-align: left;
+	background: #3a7691;
+	width: 100vw;
+}
+header p {
+	text-align: left;
+	font-size: 12px;
+	color: white;
+	font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.container {
+	background-color: #6fc5eb;
+	overflow: auto;
+	box-sizing: border-box;
+	width: 100%;
+	border-bottom: 1px solid #3a7691;
+}
+#uhmDisplay {
+	color:white;
+	font-weight:bold;
+	letter-spacing: 4px;
+	border-bottom: 1px solid #3a7691;
+}
+#playMessageDiv {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1em 1em 0 1em;
+	min-height: 60px;
+}
+#playMessageDisplay {
+	font-weight: bold;
+}
+#wordBuildDiv {
+	float: left;
+	margin-left: calc((100vw - 1050px - 4em)/2);
+	padding: 1em 2em;
+	box-sizing: border-box;
+	overflow: auto;
+	min-height: 250px;
+	width: 350px;
+
+}
+#treeDisplay {
+	float: left;
+	margin: 2em 2em 2em 2em;
+	width: calc(30% - 7em);
+	padding: 0;
+	height: auto;
+	box-sizing: border-box;
+	min-height: 350px;
+	width: 350px;
+	text-align: center;
+}
+#gardenDiv {
+	float: left;
+	margin: 0;
+	padding: 1em 2em;
+	box-sizing: border-box;
+	overflow: auto;
+	min-height: 250px;
+	width: 350px;
+}
+.treeImg {
+	max-width: 100%;
+	max-height: 100%;
+	height: auto;
+	text-align: center;
+}
+
+@media screen and (max-width: 1171px) and (min-width: 768px) {
+#treeDisplay{
+	float: none;
+	width: auto;
+	margin-left: 0 0 2em calc((100vw - 350px)/2);
+	display: block;
+}
+#wordBuildDiv, #gardenDiv {
+	float: none;
+	display: inline-block;
+}
+#wordBuildDiv {
+	margin-left: calc((100vw - 700px)/2);
+}
+}
+
+@media screen and (max-width: 767px) {
+
+
+#wordBuildDiv, #gardenDiv {
+	float: none;
+	margin: 0 auto;
+	width: 100%;
+}
+#treeDisplay {
+	float: none;
+	margin: 0 auto;
+	width: 100%;
+	margin: 0 2em 1em 2em;
+	max-width: calc(100% - 4em);
+}
+}
+@media screen and (max-width: 740px) {
+
+h1{
+	padding-top:2.4em;
+}
+}
