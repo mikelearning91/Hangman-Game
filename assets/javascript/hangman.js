@@ -63,6 +63,11 @@
             h: "walk, but don't you dare..."
         }
     ]
+    //function to clear word bank/div - used at end of each round
+    function clearBox(uhmDisplay) {
+        document.getElementById("uhmDisplay").innerHTML = "";
+    }
+
     //initializing message to player on how to start game
     function gameReady() {
         var playMessage = 'Press any key to start playing!'
@@ -97,8 +102,13 @@
         var treeHtml = "";
         document.querySelector('#treeDisplay').innerHTML = treeHtml;
         var treeUhmHtml = treeLosing.join('  ');
+        //initialize 'wrong letters used' container and child
         var wrongGuessesHtml = "You have " + wrongGuessesRemain + " guesses left";
-        document.querySelector('#uhmDisplay').innerHTML = treeUhmHtml;
+        var usedLetterBank = document.createElement("p");
+        usedLetterBank.innerHTML = treeUhmHtml;
+        var bankDisplay = ("#uhmDisplayContainer");
+        bankDisplay.append = usedLetterBank;
+
         document.querySelector('#wrongGuessesDisplay').innerHTML = wrongGuessesHtml;
         //full tree because no guess have been made
         document.querySelector('#treeDisplay').innerHTML = "<img src='assets/img/fulltree.png' alt='leaves are falling off of the tree for every letter you guess wrong'>";
@@ -110,9 +120,12 @@
         //game on!
         document.onkeyup = function gameGo(event) {
             document.querySelector('#playMessageDisplay').innerHTML = '';
+            //initializes 'wrong letters used' label so the player knows why letters at the top of the screen are appearing
+            var lettersUsedLabel = document.getElementById("lettersUsedLabel");
+            lettersUsedLabel.className = "visible";
+            //press a key = letter guessed for the right word
             var playerEntry = String.fromCharCode(event.keyCode).toLowerCase();
             console.log("letter guessed:  " + playerEntry);
-
             for (i = 0; i < allWords[wordChoice].w.length; i++) {
 
                 if (allWords[wordChoice].w[i] === playerEntry) {
@@ -131,6 +144,8 @@
                         document.querySelector('#winsDisplay').innerHTML = winsHtml;
                         document.querySelector('#treeDisplay').innerHTML = "<img src='" + treeFallDisplay[0] + "' alt='leaves are falling off of the tree for every letter you guess wrong'>";
                         setTimeout(gameSet, 3000);
+                        //resets 'letters used' div
+                        clearBox();
                     }
                 }
             }
@@ -147,7 +162,7 @@
                 //trigger for wrong guesses
                 for (j = 0; j < treeLosing.length; j++) {
                     j = treeLosing.indexOf(playerEntry);
-                    if (treeLosing.length < 11) {
+                    if (treeLosing.length <= 11) {
                         var showFallingTree = treeFallDisplay[j];
                         var treeHtml = "<img src='" + showFallingTree + "' alt='leaves are falling off of the tree for every letter you guess wrong'>";
                         document.querySelector('#treeDisplay').innerHTML = treeHtml;
@@ -165,7 +180,9 @@
                 var confirmLoss = ('You did not feed the tree enough words :( The solution is "' + allWords[wordChoice].w + '".');
                 document.querySelector('#playMessageDisplay').innerHTML = confirmLoss;
                 document.querySelector('#treeDisplay').innerHTML = "<img src='assets/img/all-gone.png' alt='leaves are falling off of the tree for every letter you guess wrong'>";
-                setTimeout(gameSet, 5500);
+                setTimeout(gameSet, 4500);
+                //resets 'letters used' bank
+                clearBox();
             }
         }
     }

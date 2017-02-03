@@ -58,13 +58,24 @@ header p {
 	overflow: auto;
 	box-sizing: border-box;
 	width: 100%;
+	border-top: 1px solid #3a7691;
+}
+#uhmDisplayContainer {
+	text-align: center;
 	border-bottom: 1px solid #3a7691;
 }
+#lettersUsedLabel {
+	display: inline-flex;
+	visibility: hidden;
+}
 #uhmDisplay {
+	display: inline-flex;
 	color:white;
 	font-weight:bold;
 	letter-spacing: 4px;
-	border-bottom: 1px solid #3a7691;
+}
+.visible{
+	visibility:visible !important;
 }
 #playMessageDiv {
 	width: 100%;
